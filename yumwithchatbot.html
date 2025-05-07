@@ -1,0 +1,95 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Food Ordering Website</title> 
+    <link rel="stylesheet" href="style.css"> 
+</head>  
+<body> 
+    <header>  
+        <h1>Yum Junction</h1>  
+        <nav>  
+            <ul>  
+                <li><a onclick="showPage('home')">Home</a></li>  
+                <li><a onclick="showPage('about')">About</a></li>  
+                <li><a onclick="showPage('contact')">Contact</a></li>  
+                <li><a onclick="showPage('order')">Order Food</a></li>  
+            </ul>  
+        </nav>  
+    </header>  
+
+    <main>  
+        <section id="home">  
+            <h2>Welcome to Yum Junction!</h2>  
+            <p>Your favorite meals delivered right to your door.</p>  
+            <button class="cta-btn" onclick="showPage('order')">Order Now</button>  
+        </section>
+	    <section id="about" style="display: none;"> 
+            <h2>About Us</h2> 
+            <p>At Yum Junction, we believe in providing fresh, delicious, and quick meals for every 
+            occasion. Whether you're craving biryani, rice, or dosa, we've got something for everyone!</p> 
+            <p>Our mission is to deliver your favorite dishes with speed and a smile.</p> 
+            <a href="javascript:void(0)" class="cta-btn" onclick="showPage('home')">Back to Home</a> 
+        </section>  
+	    <section id="contact" style="display: none;"> 
+            <h2>Contact Us</h2> 
+            <p>Have questions or need support? We're here to help!</p> 
+            <form class="contact-form" action="javascript:void(0)" onsubmit="sendMessage(event)"> 
+            <input type="text" id="name" placeholder="Your Name" required><br> 
+            <input type="email" id="email" placeholder="Your Email" required><br> 
+            <textarea id="message" placeholder="Your Message" rows="4" required></textarea><br> 
+            <button type="submit">Send Message</button> 
+            </form> 
+            <a href="javascript:void(0)" class="cta-btn" onclick="showPage('home')">Back to Home</a> 
+        </section>
+
+        <section id="order">  
+            <h2>Order Your Food</h2>  
+            <div class="order-item">  
+    		<img src="images/MuttonBriyani.jpg" alt="Mutton Biryani">  
+    		<h3>Mutton Biryani</h3>  
+    		<p>Rs. 190</p>  
+    		<button onclick="addToCart('Mutton Biryani', 190)">Add to Cart</button> 
+	    </div>
+
+	    <div class="order-item">  
+  		  <img src="images/ChickenBriyani.jpg" alt="Chicken Biryani">  
+   	 	  <h3>Chicken Biryani</h3>  
+    		  <p>Rs. 190</p>  
+    		  <button onclick="addToCart('Chicken Biryani', 190)">Add to Cart</button>
+	    </div>
+
+            <div class="order-item">  
+   		 <img src="images/MasalaDosa.jpg" alt="Masala Dosa">  
+   		 <h3>Masala Dosa</h3>  
+   		 <p>Rs. 50</p>  
+   		 <button onclick="addToCart('Masala Dosa', 50)">Add to Cart</button> 
+            </div>
+
+            <div id="cart-summary">  
+                <h3>Cart Summary:</h3>  
+                <ul id="cart-items"></ul>  
+                <p>Total: Rs. <span id="total-price">0.00</span></p>  
+                <button class="cta-btn" onclick="placeOrder()">Place Order</button>  
+            </div> 
+	    <a href="javascript:void(0)" class="cta-btn" onclick="showPage('home')">Back to Home</a> 
+          </section>
+    </section>  
+</main>  
+<div id="chatbot-container">
+    <span id="chatbot-icon">💬</span>
+    <div id="chatbot-header">Chat with us!</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Type a message...">
+        <button onclick="sendChat()">Send</button>
+        <button id="faq-btn" style="margin-top: 5px; font-size: 0.8rem;">Show FAQs</button>
+    </div>
+</div>
+<footer>  
+    <p>&copy; 2025 Yum Junction. All rights reserved.</p>  
+</footer>  
+<script src="script.js"></script>
+</body>  
+</html>
